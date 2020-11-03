@@ -47,11 +47,41 @@ void	ft_test_memset()
 	ft_putchar('\n');
 }
 
+void	ft_test_memcpy()
+{
+	int		i;
+	char	dst1[10];
+	char	src1[] = "0123456789";
+	char	*dst_result1;
+	char	dst2[10];
+	char	src2[] = "0123456789";
+	char	*dst_result2;
+
+	ft_putstr("memcpy:\n");
+	dst_result1 = memcpy(dst1, src1, 10); 
+	i = 0;
+	while (i < 10)
+		ft_putchar(dst_result1[i++]);
+	ft_putchar('\n');
+
+	ft_putstr("ft_memcpy:\n");
+	dst_result2 = ft_memcpy(dst2, src2, 10);
+	i = 0;
+	while (i < 10)
+		ft_putchar(dst_result2[i++]);
+	ft_putchar('\n');
+}
+
 int		main(void)
 {
-	ft_putstr("testing memset:\n");
+	ft_putstr("testing ft_memset:\n");
 	ft_putstr("<---------------\n");
 	ft_test_memset();
+	ft_putstr("--------------->\n");
+
+	ft_putstr("testing ft_memcpy:\n");
+	ft_putstr("<---------------\n");
+	ft_test_memcpy();
 	ft_putstr("--------------->\n");
 	return (0);
 }
