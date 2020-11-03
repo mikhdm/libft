@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 00:58:22 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/04 00:58:30 by rmander          ###   ########.fr       */
+/*   Created: 2020/11/04 00:58:10 by rmander           #+#    #+#             */
+/*   Updated: 2020/11/04 01:28:32 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	if (!n)
-		return ;
-	ft_memset(s, 0, n);
+	unsigned char	*d;
+
+	if (!dst || !src)
+		return (NULL);
+	d = dst;
+	while (n--)
+	{
+		*d = *(unsigned char*)src; 
+		if (*d == (unsigned char)c)
+			return (++d);
+		++d;
+		++src;
+	}
+	return (NULL);
 }

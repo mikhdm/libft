@@ -6,18 +6,24 @@
 #    By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/01 20:23:55 by rmander           #+#    #+#              #
-#    Updated: 2020/11/01 20:27:07 by rmander          ###   ########.fr        #
+#    Updated: 2020/11/04 00:32:05 by rmander          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+CC = gcc
 NAME = libft.a
 INCLUDE = libft.h
+SRCS = ft_memset.c ft_bzero.c ft_memcpy.c
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 	# TODO
 
-%.o: %.c $(INCLUDE)
-	gcc -o $@ -c $<
+$(NAME): $(OBJS)
+	ar rcs $^
+
+%.o: %.c
+	$(CC) -o $@ -c $<
 
 clean:
 	rm -r *.o
