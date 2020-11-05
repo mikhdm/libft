@@ -1,6 +1,6 @@
 #include "libft.h"
 
-t_bool	ft_is_numeric(char c)
+short int	ft_is_numeric(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (TRUE);

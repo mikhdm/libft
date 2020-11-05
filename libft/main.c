@@ -170,6 +170,31 @@ void	ft_test_memmove()
 	ft_putchar('\n');
 }
 
+void	ft_test_memchr()
+{
+	/* TODO */
+}
+
+void	ft_test_memcmp()
+{
+	char	s1[] = "hello";
+	char	s2[] = "hello";
+	char	s3[] = "abcd0";
+	char	s4[] = "abcd5";
+
+	printf("basic 1 (equal):\n");
+	printf("system:\n");
+	printf("%s == %s ? %d\n", s1, s2, memcmp(s1, s2, 5));
+	printf("mine:\n");
+	printf("%s == %s ? %d\n", s1, s2, ft_memcmp(s1, s2, 5));
+
+	printf("basic 2 (non equal):\n");
+	printf("system:\n");
+	printf("%s == %s ? %d\n", s3, s4, memcmp(s3, s4, 5));
+	printf("mine:\n");
+	printf("%s == %s ? %d\n", s3, s4, ft_memcmp(s3, s4, 5));
+}
+
 void	test(char *name, void (*func)(void))
 {
 	ft_putstr(name);
@@ -186,6 +211,7 @@ int		main(void)
 	test("FT_MEMCPY", &ft_test_memcpy);
 	test("FT_MEMCCPY", &ft_test_memccpy);
 	test("FT_MEMMOVE", &ft_test_memmove);
+	test("FT_MEMCMP", &ft_test_memcmp);
 
 	return (0);
 }
