@@ -172,7 +172,15 @@ void	ft_test_memmove()
 
 void	ft_test_memchr()
 {
-	/* TODO */
+	char s[] = "abcde";
+	int c = 'e';
+	size_t n = 5;
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	printf("%c\n", *(unsigned char*)memchr(s, c, n));
+	printf("mine:\n");
+	printf("%c\n", *(unsigned char*)ft_memchr(s, c, n));
 }
 
 void	ft_test_memcmp()
@@ -211,6 +219,7 @@ int		main(void)
 	test("FT_MEMCPY", &ft_test_memcpy);
 	test("FT_MEMCCPY", &ft_test_memccpy);
 	test("FT_MEMMOVE", &ft_test_memmove);
+	test("FT_MEMCHR", &ft_test_memchr);
 	test("FT_MEMCMP", &ft_test_memcmp);
 
 	return (0);
