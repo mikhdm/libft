@@ -123,6 +123,53 @@ void	ft_test_memccpy()
 	ft_putstr("\n");
 }
 
+void	ft_test_memmove()
+{
+	char	s1[] = "abcdefg";
+	char	d1[7];
+	char	*r1;
+	size_t	len1;
+	size_t	i;
+
+	char	s2[] = "abcdefg";
+	char	d2[7];
+	char	*r2;
+	size_t	len2;
+
+	len1 = 7;
+	len2 = 5;
+	r1 = NULL;
+	r2 = NULL;
+	ft_putstr("basic 1:\n");
+
+	ft_putstr("system:\n");
+	r1 = memmove(d1, s1, len1);
+	i = 0;
+	while (i < len1)
+		ft_putchar(r1[i++]);
+
+	ft_putstr("\nmine:\n");
+	r2 = ft_memmove(d2, s2, len1);
+	i = 0;
+	while (i < len1)
+		ft_putchar(r2[i++]);
+
+	ft_putstr("\nbasic 2 (overlapping):\n");
+
+	ft_putstr("system:\n");
+	r1 = memmove(s1 + 2, s1, len2);
+	i = 0;
+	while (i < len2)
+		ft_putchar(r1[i++]);
+
+	ft_putstr("\nmine:\n");
+	r2 = ft_memmove(s2 + 2, s2, len2);
+	i = 0;
+	while (i < len2)
+		ft_putchar(r2[i++]);
+	ft_putchar('\n');
+}
+
 void	test(char *name, void (*func)(void))
 {
 	ft_putstr(name);
@@ -138,6 +185,7 @@ int		main(void)
 	test("FT_BZERO", &ft_test_bzero);
 	test("FT_MEMCPY", &ft_test_memcpy);
 	test("FT_MEMCCPY", &ft_test_memccpy);
+	test("FT_MEMMOVE", &ft_test_memmove);
 
 	return (0);
 }
