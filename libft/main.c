@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:15:24 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/04 01:28:34 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/07 00:22:11 by mikhaylen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,6 +203,81 @@ void	ft_test_memcmp()
 	printf("%s == %s ? %d\n", s3, s4, ft_memcmp(s3, s4, 5));
 }
 
+void	ft_test_strlen()
+{
+	char s[] = "hello";
+	printf("system:\n");
+	printf("%zu\n", strlen(s));
+	printf("mine:\n");
+	printf("%zu\n", ft_strlen(s));
+}
+
+void	ft_test_strlcpy()
+{
+	size_t	dstsize = 6;
+
+	char	s[] = "hello";
+	char	d[6];
+
+	char	s1[] = "hello";
+	char	d1[6];
+	printf("system:\n");
+	printf("%zu ", strlcpy(d, s, dstsize));
+	printf("%s\n", d);
+	printf("mine:\n");
+	printf("%zu ", ft_strlcpy(d1, s1, dstsize));
+	printf("%s\n", d1);
+}
+
+void	ft_test_strlcat()
+{
+	size_t	dstsize = 11;
+
+	char	s[] = "12345";
+	char	d[11] = "abcde";
+
+	char	s1[] = "12345";
+	char	d1[11] = "abcde";
+	
+	printf("system:\n");
+	printf("%zu\n", strlcat(d, s, dstsize));
+	printf("%s\n", d);
+	printf("mine:\n");
+	printf("%zu\n", ft_strlcat(d1, s1, dstsize));
+	printf("%s\n", d);
+
+}
+
+void	ft_test_strchr()
+{
+	char 	s[] = "hello1";
+	int		c = '1';
+	char	*r1;
+	char	*r2;
+
+	printf("system:\n");
+	r1 = strchr(s, c);
+	printf("%c\n", *r1);
+	printf("mine:\n");
+	r2 = ft_strchr(s, c);
+	printf("%c\n", *r2);
+}
+
+void	ft_test_strrchr()
+{
+	char 	s[] = "1hello";
+	int		c = '1';
+	char	*r1;
+	char	*r2;
+
+	printf("system:\n");
+	r1 = strchr(s, c);
+	printf("%c\n", *r1);
+	printf("mine:\n");
+	r2 = ft_strrchr(s, c);
+	printf("%c\n", *r2);
+}
+
 void	test(char *name, void (*func)(void))
 {
 	ft_putstr(name);
@@ -221,6 +296,11 @@ int		main(void)
 	test("FT_MEMMOVE", &ft_test_memmove);
 	test("FT_MEMCHR", &ft_test_memchr);
 	test("FT_MEMCMP", &ft_test_memcmp);
+	test("FT_STRLEN", &ft_test_strlen);
+	test("FT_STRLCPY", &ft_test_strlcpy);
+	test("FT_STRLCAT", &ft_test_strlcat);
+	test("FT_STRCHR", &ft_test_strchr);
+	test("FT_STRRCHR", &ft_test_strrchr);
 
 	return (0);
 }

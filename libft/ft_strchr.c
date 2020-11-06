@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/07 00:54:11 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/07 00:54:12 by rmander          ###   ########.fr       */
+/*   Created: 2020/11/07 00:54:44 by rmander           #+#    #+#             */
+/*   Updated: 2020/11/07 00:55:24 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-
-	i = 0;
-	while (*s++)
-		++i;
-	return (i);
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char*)s);
+		++s;
+	}
+	if (*s == (char)c)
+		return ((char*)s);
+	return (NULL);
 }
