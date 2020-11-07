@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:15:24 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/07 18:35:34 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/07 20:51:59 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -340,19 +340,179 @@ void	ft_test_atoi()
 	printf("%s: %d\n", d4, ft_atoi(d4));
 }
 
-void	ft_test_isdigit()
+void	ft_test_isalpha()
 {
+	int	c = 'c';
+	int	d = '1';
+
 	printf("basic 1:\n");
 	printf("system:\n");
-	printf("%c: %d\n", 'a', isdigit('a'));
+	printf("%c: %d\n", c, isalpha(c));
 	printf("mine:\n");
-	printf("%c: %d\n", 'a', ft_isdigit('a'));
+	printf("%c: %d\n", c, ft_isalpha(c));
+
 	printf("basic 2:\n");
 	printf("system:\n");
-	printf("%c: %d\n", '1', isdigit('1'));
+	printf("%c: %d\n", d, isalpha(d));
 	printf("mine:\n");
-	printf("%c: %d\n", '1', ft_isdigit('1'));
+	printf("%c: %d\n", d, ft_isalpha(d));
 }
+
+void	ft_test_isdigit()
+{
+	int c = 'a';
+	int	d = '1';
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	printf("%c: %d\n", c, isdigit(c));
+	printf("mine:\n");
+	printf("%c: %d\n", c, ft_isdigit(c));
+
+	printf("basic 2:\n");
+	printf("system:\n");
+	printf("%c: %d\n", d, isdigit(d));
+	printf("mine:\n");
+	printf("%c: %d\n", d, ft_isdigit(d));
+}
+
+void	ft_test_isalnum()
+{
+	int	c1 = '1';
+	int	c2 = 'a';
+	int	c3 = '~';
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	printf("%c: %d\n", c1, isalnum(c1));
+	printf("mine:\n");
+	printf("%c: %d\n", c1, ft_isalnum(c1));
+
+	printf("basic 2:\n");
+	printf("system:\n");
+	printf("%c: %d\n", c2, isalnum(c2));
+	printf("mine:\n");
+	printf("%c: %d\n", c2, ft_isalnum(c2));
+
+	printf("basic 3:\n");
+	printf("system:\n");
+	printf("%c: %d\n", c3, isalnum(c3));
+	printf("mine:\n");
+	printf("%c: %d\n", c3, ft_isalnum(c3));
+}
+
+void	ft_test_isascii()
+{
+	int	c = '~';
+	int	d = 290;
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	printf("%c: %d\n", c, isascii(c));
+	printf("mine:\n");
+	printf("%c: %d\n", c, ft_isascii(c));
+
+	printf("basic 2:\n");
+	printf("system:\n");
+	printf("%d: %d\n", d, isascii(d));
+	printf("mine:\n");
+	printf("%d: %d\n", d, ft_isascii(d));
+}
+
+void	ft_test_isprint()
+{
+	int	c = '\0';
+	int	d = 'a';
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	printf("nul-term: %d\n", isprint(c));
+	printf("mine:\n");
+	printf("nul-term: %d\n", ft_isprint(c));
+
+	printf("basic 2:\n");
+	printf("system:\n");
+	printf("%c: %d\n", d, isprint(d));
+	printf("mine:\n");
+	printf("%c: %d\n", d, ft_isprint(d));
+
+}
+
+void	ft_test_isupper()
+{
+	int	c = 'a';
+	int	d = 'Z';
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	printf("%c: %d\n", c, isupper(c));
+	printf("mine:\n");
+	printf("%c: %d\n", c, ft_isupper(c));
+
+	printf("basic 2:\n");
+	printf("system:\n");
+	printf("%c: %d\n", d, isupper(d));
+	printf("mine:\n");
+	printf("%c: %d\n", d, ft_isupper(d));
+}
+
+void	ft_test_islower()
+{
+	int	c = 'a';
+	int	d = 'Z';
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	printf("%c: %d\n", c, islower(c));
+	printf("mine:\n");
+	printf("%c: %d\n", c, ft_islower(c));
+
+	printf("basic 2:\n");
+	printf("system:\n");
+	printf("%c: %d\n", d, islower(d));
+	printf("mine:\n");
+	printf("%c: %d\n", d, ft_islower(d));
+
+}
+
+void	ft_test_toupper()
+{
+	int	c = 'a';
+	int	d = 'Z';
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	printf("%c: %c\n", c, toupper(c));
+	printf("mine:\n");
+	printf("%c: %c\n", c, ft_toupper(c));
+
+	printf("basic 2:\n");
+	printf("system:\n");
+	printf("%c: %c\n", d, toupper(d));
+	printf("mine:\n");
+	printf("%c: %c\n", d, ft_toupper(d));
+
+}
+
+void	ft_test_tolower()
+{
+	int	c = 'a';
+	int	d = 'Z';
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	printf("%c: %c\n", c, tolower(c));
+	printf("mine:\n");
+	printf("%c: %c\n", c, ft_tolower(c));
+
+	printf("basic 2:\n");
+	printf("system:\n");
+	printf("%c: %c\n", d, tolower(d));
+	printf("mine:\n");
+	printf("%c: %c\n", d, ft_tolower(d));
+
+}
+
 
 void	test(char *name, void (*func)(void))
 {
@@ -380,7 +540,15 @@ int		main(void)
 	test("FT_STRNSTR", &ft_test_strnstr);
 	test("FT_STRNCMP", &ft_test_strncmp);
 	test("FT_ATOI", &ft_test_atoi);
+	test("FT_ISALPHA", &ft_test_isalpha);
 	test("FT_ISIDIGIT", &ft_test_isdigit);
+	test("FT_ISALNUM", &ft_test_isalnum);
+	test("FT_ISASCII", &ft_test_isascii);
+	test("FT_ISPRINT", &ft_test_isprint);
+	test("FT_ISUPPER", &ft_test_isupper);
+	test("FT_ISLOWER", &ft_test_islower);
+	test("FT_TOUPPER", &ft_test_toupper);
+	test("FT_TOLOWER", &ft_test_tolower);
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 18:02:08 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/07 18:02:09 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/07 20:50:41 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_isdigit(int c)
 {
-	if ((unsigned char)c >= '0' && (unsigned char)c <= '9')
+	if (c >= '0' && c <= '9')
 		return (TRUE);
 	return (FALSE);
 }
