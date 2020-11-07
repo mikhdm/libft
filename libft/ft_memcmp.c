@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 00:55:06 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/07 00:55:28 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/07 17:25:37 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	if (!n)
 		return (0);
-	while (n--)
+	while (--n)
 	{
 		if (*(unsigned char*)s1 != *(unsigned char*)s2)
 			break ;

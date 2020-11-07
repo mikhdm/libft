@@ -6,20 +6,13 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 00:45:30 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/07 00:46:04 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/07 18:09:59 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-short int	ft_is_numeric(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (TRUE);
-	return (FALSE);
-}
-
-long	ft_pow(long n, long power)
+static long	ft_pow(long n, long power)
 {
 	long	res;
 
@@ -29,7 +22,7 @@ long	ft_pow(long n, long power)
 	return (res);
 }
 
-int		ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	long		result;
 	const char	*end;
@@ -47,7 +40,7 @@ int		ft_atoi(const char *str)
 		neg = 1;
 	}
 	end = str;
-	while (*end && ft_is_numeric(*end))
+	while (*end && ft_isdigit(*end))
 	{
 		count++;
 		end++;

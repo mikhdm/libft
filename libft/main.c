@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:15:24 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/07 00:22:11 by mikhaylen        ###   ########.fr       */
+/*   Updated: 2020/11/07 18:35:34 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <ctype.h>
 #include "libft.h"
 
 void	ft_putstr(const char *str)
@@ -189,18 +190,19 @@ void	ft_test_memcmp()
 	char	s2[] = "hello";
 	char	s3[] = "abcd0";
 	char	s4[] = "abcd5";
+	size_t	n = 5;
 
 	printf("basic 1 (equal):\n");
 	printf("system:\n");
-	printf("%s == %s ? %d\n", s1, s2, memcmp(s1, s2, 5));
+	printf("%s == %s ? %d\n", s1, s2, memcmp(s1, s2, n));
 	printf("mine:\n");
-	printf("%s == %s ? %d\n", s1, s2, ft_memcmp(s1, s2, 5));
+	printf("%s == %s ? %d\n", s1, s2, ft_memcmp(s1, s2, n));
 
 	printf("basic 2 (non equal):\n");
 	printf("system:\n");
-	printf("%s == %s ? %d\n", s3, s4, memcmp(s3, s4, 5));
+	printf("%s == %s ? %d\n", s3, s4, memcmp(s3, s4, n));
 	printf("mine:\n");
-	printf("%s == %s ? %d\n", s3, s4, ft_memcmp(s3, s4, 5));
+	printf("%s == %s ? %d\n", s3, s4, ft_memcmp(s3, s4, n));
 }
 
 void	ft_test_strlen()
@@ -278,6 +280,80 @@ void	ft_test_strrchr()
 	printf("%c\n", *r2);
 }
 
+void	ft_test_strnstr()
+{
+	size_t	len = 14;
+
+	char	haystack[] = "hayhayhaystack";
+	char	needle[] = "stack";
+
+	char	haystack1[] = "hayhayhaystack";
+	char	needle1[] = "stack";
+
+	printf("system:\n");
+	printf("%s\n", strnstr(haystack, needle, 14));
+	printf("mine:\n");
+	printf("%s\n", ft_strnstr(haystack1, needle1, 14));
+}
+
+void	ft_test_strncmp()
+{
+	char	s1[] = "hello";
+	char	s2[] = "hell2";
+	size_t	n = 4;
+
+	printf("system:\n");
+	printf("n = %zu, %s == %s ? %d\n", n, s1, s2, strncmp(s1, s2, n));
+	printf("mine:\n");
+	printf("n = %zu, %s == %s ? %d\n", n, s1, s2, ft_strncmp(s1, s2, n));
+}
+
+void	ft_test_atoi()
+{
+	char 	*d1 = "-11123";
+	char	*d2 = "111aaa";
+	char	*d3 = "2147483648";
+	char	*d4 = "-2147483649";
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	printf("%s: %d\n", d1, atoi(d1));
+	printf("mine:\n");
+	printf("%s: %d\n", d1, ft_atoi(d1));
+
+	printf("basic 2:\n");
+	printf("system:\n");
+	printf("%s: %d\n", d2, atoi(d2));
+	printf("mine:\n");
+	printf("%s: %d\n", d2, ft_atoi(d2));
+
+	printf("basic 3:\n");
+	printf("system:\n");
+	printf("%s: %d\n", d3, atoi(d3));
+	printf("mine:\n");
+	printf("%s: %d\n", d3, ft_atoi(d3));
+
+	printf("basic 4:\n");
+	printf("system:\n");
+	printf("%s: %d\n", d4, atoi(d4));
+	printf("mine:\n");
+	printf("%s: %d\n", d4, ft_atoi(d4));
+}
+
+void	ft_test_isdigit()
+{
+	printf("basic 1:\n");
+	printf("system:\n");
+	printf("%c: %d\n", 'a', isdigit('a'));
+	printf("mine:\n");
+	printf("%c: %d\n", 'a', ft_isdigit('a'));
+	printf("basic 2:\n");
+	printf("system:\n");
+	printf("%c: %d\n", '1', isdigit('1'));
+	printf("mine:\n");
+	printf("%c: %d\n", '1', ft_isdigit('1'));
+}
+
 void	test(char *name, void (*func)(void))
 {
 	ft_putstr(name);
@@ -301,6 +377,10 @@ int		main(void)
 	test("FT_STRLCAT", &ft_test_strlcat);
 	test("FT_STRCHR", &ft_test_strchr);
 	test("FT_STRRCHR", &ft_test_strrchr);
+	test("FT_STRNSTR", &ft_test_strnstr);
+	test("FT_STRNCMP", &ft_test_strncmp);
+	test("FT_ATOI", &ft_test_atoi);
+	test("FT_ISIDIGIT", &ft_test_isdigit);
 
 	return (0);
 }
