@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:15:24 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/07 20:52:50 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/08 23:13:20 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,9 +291,9 @@ void	ft_test_strnstr()
 	char	needle1[] = "stack";
 
 	printf("system:\n");
-	printf("%s\n", strnstr(haystack, needle, 14));
+	printf("%s\n", strnstr(haystack, needle, 0));
 	printf("mine:\n");
-	printf("%s\n", ft_strnstr(haystack1, needle1, 14));
+	printf("%s\n", ft_strnstr(haystack1, needle1, 0));
 }
 
 void	ft_test_strncmp()
@@ -510,9 +510,49 @@ void	ft_test_tolower()
 	printf("%c: %c\n", d, tolower(d));
 	printf("mine:\n");
 	printf("%c: %c\n", d, ft_tolower(d));
-
 }
 
+void	ft_test_calloc()
+{
+	char	*mem;
+	size_t	i;
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	mem = calloc(10, sizeof(char));
+	i = 0;
+	while (i < 10)
+		if (mem[i++] == 0)
+			printf("0");
+	printf("\n");
+	free(mem);
+
+	printf("mine:\n");
+	mem = ft_calloc(10, sizeof(char));
+	i = 0;
+	while (i < 10)
+		if (mem[i++] == 0)
+			printf("0");
+	printf("\n");
+	free(mem);
+}
+
+void	ft_test_strdup()
+{
+	char	src[] = "abcdef";
+	char	*dst1;
+	char	*dst2;
+
+	printf("basic 1:\n");
+	printf("system:\n");
+	dst1 = strdup(src);
+	printf("%s\n", dst1);
+	printf("mine:\n");
+	dst2 = ft_strdup(src);
+	printf("%s\n", dst2);
+	free(dst1);
+	free(dst2);
+}
 
 void	test(char *name, void (*func)(void))
 {
@@ -549,6 +589,8 @@ int		main(void)
 	test("FT_ISLOWER", &ft_test_islower);
 	test("FT_TOUPPER", &ft_test_toupper);
 	test("FT_TOLOWER", &ft_test_tolower);
+	test("FT_CALLOC", &ft_test_calloc);
+	test("FT_STRDUP", &ft_test_strdup);
 
 	return (0);
 }
