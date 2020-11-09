@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:15:24 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/08 23:13:20 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/10 02:20:03 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,24 +104,39 @@ void	ft_test_memccpy()
 	size_t	n;
 	char	src[] = "01234a6789";
 	char	dst[10];
+
 	char	src1[] = "01234a6789";
 	char	dst1[10];
 	char	*d;
 	char	*d1;
 
+	char	c2 = '9';
+	char	src2[] = "9876543210";
+	char	dst2[] = "0123456789";
+	size_t	n2 = 9;
+	char	*d2;
+
 	c = 'a';
 	n = 10;
 	d = NULL;
-	ft_putstr("system:\n");
-	d = memccpy(dst, src, 'a', 10);
+	printf("basic 1:\n");
+	printf("system:\n");
+	d = memccpy(dst, src, c, n);
 	--d;
-	ft_putchar(*d);
-	ft_putchar('\n');
-	ft_putstr("mine:\n");
-	d1 = ft_memccpy(dst1, src1, 'a', 10);
+	printf("%c\n", *d);
+	printf("mine:\n");
+	d1 = ft_memccpy(dst1, src1, c, n);
 	--d1;
-	ft_putchar(*d1);
-	ft_putstr("\n");
+	printf("%c\n", *d1);
+
+	printf("basic 2 (moulinette):\n");
+	printf("system:\n");
+	/* 123456789 */
+	d2 = memccpy(dst2, src2, c2, n2);
+	printf("%s\n", d2);
+	printf("mine:\n");
+	d2 = ft_memccpy(dst2, src2, c2, n2);
+	printf("%s\n", d2);
 }
 
 void	ft_test_memmove()
@@ -284,16 +299,16 @@ void	ft_test_strnstr()
 {
 	size_t	len = 14;
 
-	char	haystack[] = "hayhayhaystack";
-	char	needle[] = "stack";
+	char	haystack[] = "bbbc";
+	char	needle[] = "bbc";
 
-	char	haystack1[] = "hayhayhaystack";
-	char	needle1[] = "stack";
+	char	haystack1[] = "bbbc";
+	char	needle1[] = "bbc";
 
 	printf("system:\n");
-	printf("%s\n", strnstr(haystack, needle, 0));
+	printf("%s\n", strnstr(haystack, needle, 4));
 	printf("mine:\n");
-	printf("%s\n", ft_strnstr(haystack1, needle1, 0));
+	printf("%s\n", ft_strnstr(haystack1, needle1, 4));
 }
 
 void	ft_test_strncmp()
@@ -554,6 +569,35 @@ void	ft_test_strdup()
 	free(dst2);
 }
 
+void	ft_test_substr()
+{
+	char			src[] = "abcdefgh";
+	size_t			len = 5;
+	unsigned int	start = 0;
+	size_t			len1 = 0;
+	unsigned int	start1 = 0;
+
+	printf("basic 1:\n");
+	printf("src: %s, start: %u len: %zu, %s\n", src, start, len, ft_substr(src, start, len));
+	printf("basic 2:\n");
+	printf("src: %s, start: %u len: %zu, %s\n", src, start1, len1, ft_substr(src, start1, len1));
+}
+
+void	ft_test_strjoin()
+{
+	char	s1[] = "abc";
+	char	s2[] = "defg";
+	char	s3[] = "";
+	char	*r;
+
+	printf("basic 1:\n");
+	r = ft_strjoin(s1, s2);
+	printf("s1: %s, s2: %s, %s\n", s1, s2, r);
+	printf("basic 1:\n");
+	r = ft_strjoin(s3, s3);
+	printf("two empties, slash-zero? %d\n", *r == '\0');
+}
+
 void	test(char *name, void (*func)(void))
 {
 	ft_putstr(name);
@@ -565,6 +609,7 @@ void	test(char *name, void (*func)(void))
 
 int		main(void)
 {
+	printf("PART 1:\n");
 	test("FT_MEMSET", &ft_test_memset);
 	test("FT_BZERO", &ft_test_bzero);
 	test("FT_MEMCPY", &ft_test_memcpy);
@@ -591,6 +636,11 @@ int		main(void)
 	test("FT_TOLOWER", &ft_test_tolower);
 	test("FT_CALLOC", &ft_test_calloc);
 	test("FT_STRDUP", &ft_test_strdup);
+	printf("\n");
+	printf("PART 2:\n");
+	printf("\n");
+	test("FT_SUBSTR", &ft_test_substr);
+	test("FT_STRJOIN", &ft_test_strjoin);
 
 	return (0);
 }
