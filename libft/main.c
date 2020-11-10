@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:15:24 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/10 02:20:03 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/10 22:58:59 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -598,6 +598,32 @@ void	ft_test_strjoin()
 	printf("two empties, slash-zero? %d\n", *r == '\0');
 }
 
+void	ft_test_strtrim()
+{
+	char	set[] = ".!";
+	char	s1[] = ".!!!!!!.!!!A!";
+	char	*result;
+
+	printf("basic 1:\n");
+	result = ft_strtrim(s1, set);
+	printf("s1: %s, set: %s, result: %s\n", s1, set, result);
+}
+
+void	ft_test_split()
+{
+	char	str[] = "this peace of paper    should be cut    ";
+	char	**strs;
+
+	printf("basic 1:\n");
+	strs = ft_split(str, ' ');
+	printf("\n");
+	printf("input: <%s>\n", str);
+	printf("\n");
+	printf("output:\n");
+	while (*strs)
+		printf("<%s>\n", *strs++);   
+}
+
 void	test(char *name, void (*func)(void))
 {
 	ft_putstr(name);
@@ -636,11 +662,15 @@ int		main(void)
 	test("FT_TOLOWER", &ft_test_tolower);
 	test("FT_CALLOC", &ft_test_calloc);
 	test("FT_STRDUP", &ft_test_strdup);
+
 	printf("\n");
 	printf("PART 2:\n");
 	printf("\n");
+
 	test("FT_SUBSTR", &ft_test_substr);
 	test("FT_STRJOIN", &ft_test_strjoin);
+	test("FT_STRTRIM", &ft_test_strtrim);
+	test("FT_SPLIT", &ft_test_split);
 
 	return (0);
 }
