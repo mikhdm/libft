@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:15:24 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/12 13:06:50 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/13 00:22:29 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 #include "libft.h"
 
 # undef INT_MIN
+# undef INT_MAX
 
 #include <limits.h>
-
 
 void	ft_putstr(const char *str)
 {
@@ -647,6 +647,75 @@ void	ft_test_itoa()
 	printf("n: %d, result: %s\n", 0, ft_itoa(0)); 
 }
 
+
+char	ft_to_upperi(unsigned int i, char c)
+{
+	if (i % 2 == 0)
+		if (ft_islower(c))
+			c= c - 32;
+	return (c);
+}
+
+void	ft_test_strmapi()
+{
+	char	data[] = "abcdefgh";
+	printf("basic 1:\n");
+	printf("str: %s, output: %s\n", data, ft_strmapi(data, &ft_to_upperi));
+}
+
+void	ft_test_putchar_fd()
+{
+	printf("basic 1:\n");
+	ft_putchar_fd('a', 0);
+	ft_putchar_fd('b', 0);
+	ft_putchar_fd('c', 0);
+	ft_putchar_fd('\n', 0);
+	printf("basic 2:\n");
+	ft_putchar_fd('d', -1);
+}
+
+void	ft_test_putstr_fd()
+{
+	printf("basic 1:\n");
+	ft_putstr_fd("hello ", 0);
+	ft_putstr_fd("beautiful ", 0);
+	ft_putstr_fd("world", 0);
+	ft_putchar_fd('\n', 0);
+	printf("basic 2:\n");
+	ft_putstr_fd("world", -1);
+
+}
+
+void	ft_test_putendl_fd()
+{
+	printf("basic 1:\n");
+	ft_putendl_fd("<hello>", 0);
+	ft_putendl_fd("<beautiful>", 0);
+	ft_putendl_fd("<world>", 0);
+	printf("basic 2:\n");
+	ft_putendl_fd("<world>", -1);
+
+}
+
+void	ft_test_putnbr_fd()
+{
+	printf("basic 1:\n");
+	ft_putnbr_fd(INT_MAX, 0);
+	ft_putchar_fd('\n', 0);
+	printf("basic 2:\n");
+	ft_putnbr_fd(INT_MIN, 0);
+	ft_putchar_fd('\n', 0);
+	printf("basic 3:\n");
+	ft_putnbr_fd(-12340, 0);
+	ft_putchar_fd('\n', 0);
+	printf("basic 4:\n");
+	ft_putnbr_fd(12340, 0);
+	ft_putchar_fd('\n', 0);
+	printf("basic 5:\n");
+	ft_putnbr_fd(0, 0);
+	ft_putchar_fd('\n', 0);
+}
+
 void	test(char *name, void (*func)(void))
 {
 	ft_putstr(name);
@@ -695,6 +764,11 @@ int		main(void)
 	test("FT_STRTRIM", &ft_test_strtrim);
 	test("FT_SPLIT", &ft_test_split);
 	test("FT_ITOA", &ft_test_itoa);
+	test("FT_STRMAPI", &ft_test_strmapi);
+	test("FT_PUTCHAR_FD", &ft_test_putchar_fd); 
+	test("FT_PUTSTR_FD", &ft_test_putstr_fd); 
+	test("FT_PUTENDL_FD", &ft_test_putendl_fd); 
+	test("FT_PUTNBR_FD", &ft_test_putnbr_fd); 
 
 	return (0);
 }
