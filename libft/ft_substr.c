@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 01:00:17 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/10 01:03:03 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/11 15:01:46 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	ssize = ft_strlen(s);
 	if (start >= ssize)
-		return (NULL);
+		return (ft_strdup(""));
 	len = (len > ssize) ? ssize : len;
 	if (!len)
 		return (NULL);

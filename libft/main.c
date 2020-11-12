@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:15:24 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/10 22:58:59 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/12 13:06:50 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <math.h>
 #include "libft.h"
+
+# undef INT_MIN
+
+#include <limits.h>
+
 
 void	ft_putstr(const char *str)
 {
@@ -624,6 +630,23 @@ void	ft_test_split()
 		printf("<%s>\n", *strs++);   
 }
 
+void	ft_test_itoa()
+{
+	printf("basic 1:\n");
+	printf("n: %d (INT_MIN), result: %s\n", INT_MIN, ft_itoa(INT_MIN)); 
+
+	printf("basic 2:\n");
+	printf("n: %d, result: %s\n", -12345, ft_itoa(-12345)); 
+
+	printf("basic 3:\n");
+	printf("n: %d, result: %s\n", 12345, ft_itoa(12345)); 
+
+	printf("basic 4:\n");
+	printf("n: %d (INT_MAX), result: %s\n", INT_MAX, ft_itoa(INT_MAX)); 
+	printf("basic 5:\n");
+	printf("n: %d, result: %s\n", 0, ft_itoa(0)); 
+}
+
 void	test(char *name, void (*func)(void))
 {
 	ft_putstr(name);
@@ -671,6 +694,7 @@ int		main(void)
 	test("FT_STRJOIN", &ft_test_strjoin);
 	test("FT_STRTRIM", &ft_test_strtrim);
 	test("FT_SPLIT", &ft_test_split);
+	test("FT_ITOA", &ft_test_itoa);
 
 	return (0);
 }
