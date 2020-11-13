@@ -6,19 +6,17 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 00:54:03 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/07 11:59:05 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/13 20:51:26 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char 	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*sp;
 
-	if (!s)
-		return (NULL);
 	sp = (char*)s;
 	sp = sp + ft_strlen(s);
 	while (sp != s)

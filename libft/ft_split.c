@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 21:46:20 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/12 21:47:37 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/13 19:00:05 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void		ft_split_free(char **strs, size_t cnt)
 }
 
 char			**ft_split(char const *s, char c)
-{	
+{
 	size_t	i;
 	char	**strs;
 
@@ -69,7 +69,7 @@ char			**ft_split(char const *s, char c)
 	{
 		if (*s != c)
 		{
-			if(!(strs[i++] = ft_split_strdup(s, c)))
+			if (!(strs[i++] = ft_split_strdup(s, c)))
 			{
 				ft_split_free(strs, i);
 				return (NULL);

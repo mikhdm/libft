@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 23:02:46 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/13 00:23:58 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/13 19:15:41 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 static void		ft_putpnbr_fd(unsigned int n, int fd, char neg)
 {
 	char	d;
+
 	if (n == 0)
 		return ;
 	if (n)
@@ -24,7 +25,21 @@ static void		ft_putpnbr_fd(unsigned int n, int fd, char neg)
 		d = (n % 10) + 1 + '0';
 	else
 		d = n % 10 + '0';
-	write(fd, &d, sizeof(char)); 
+	write(fd, &d, sizeof(char));
+}
+
+void			ft_putnbr_check_and_modif(int *n, char *neg, char *min)
+{
+	if (*n < 0)
+	{
+		*neg = TRUE;
+		if (*n == INT_MIN)
+		{
+			*min = TRUE;
+			*n += 1;
+		}
+		(*n) *= -1;
+	}
 }
 
 void			ft_putnbr_fd(int n, int fd)
@@ -32,21 +47,12 @@ void			ft_putnbr_fd(int n, int fd)
 	char	d;
 	char	neg;
 	char	min;
-	
+
 	neg = FALSE;
 	min = FALSE;
 	if (fd < 0)
 		return ;
-	if (n < 0)
-	{
-		neg = TRUE;
-		if (n == INT_MIN)
-		{
-			min = TRUE;
-			n += 1;
-		}	
-		n *= -1;
-	}
+	ft_putnbr_check_and_modif(&n, &neg, &min);
 	if (n == 0)
 	{
 		d = '0';

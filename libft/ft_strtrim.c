@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 21:45:42 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/12 21:45:43 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/13 18:58:28 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static int	is_oneof(char c, char const *set)
 {
 	unsigned int	flag;
-	
+
 	flag = FALSE;
 	while (*set)
 		if (c == *set++)
@@ -40,7 +40,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 	while (is_oneof(*end, set))
 		--end;
 	++end;
-	if (!(out = malloc(sizeof(char)*((end - start) + 1))))
+	if (!(out = malloc(sizeof(char) * ((end - start) + 1))))
 		return (NULL);
 	outp = out;
 	while (start != end)
