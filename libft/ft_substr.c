@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 01:00:17 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/11 15:01:46 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/14 21:16:25 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	len = (len > ssize) ? ssize : len;
 	if (!len)
-		return (NULL);
+		return (ft_strdup(""));
 	if (!(substr = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	ft_strlcpy(substr, s + start, len + 1);

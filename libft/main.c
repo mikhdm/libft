@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:15:24 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/13 00:22:29 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/14 19:01:12 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -262,6 +262,7 @@ void	ft_test_strlcat()
 	char	s1[] = "12345";
 	char	d1[11] = "abcde";
 	
+	printf("basic 1:\n");
 	printf("system:\n");
 	printf("%zu\n", strlcat(d, s, dstsize));
 	printf("%s\n", d);
@@ -269,6 +270,23 @@ void	ft_test_strlcat()
 	printf("%zu\n", ft_strlcat(d1, s1, dstsize));
 	printf("%s\n", d);
 
+	printf("libft-unit-test 1:\n");\
+	char	*src = "aaa";
+	char	dst1[20];
+	char	dst2[20];
+	int		ret1;
+	int		ret2;
+
+	memset(dst1, 'B', sizeof(dst1));
+	memset(dst2, 'B', sizeof(dst2));
+
+	strlcat(dst1, src, 20);
+	strlcat(dst1, src, 20);
+	ret1 = strlcat(dst1, src, 20);
+
+	ft_strlcat(dst2, src, 20);
+	ft_strlcat(dst2, src, 20);
+	ret2 = ft_strlcat(dst2, src, 20);
 }
 
 void	ft_test_strchr()
