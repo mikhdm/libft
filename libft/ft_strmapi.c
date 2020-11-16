@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 21:49:03 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/14 21:07:46 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/15 17:59:38 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!f)
 		return (NULL);
 	size = ft_strlen(s);
+	data = NULL;
 	if (!(data = malloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	i = 0;

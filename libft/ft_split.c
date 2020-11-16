@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 21:46:20 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/13 19:00:05 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/15 18:03:53 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ char			**ft_split(char const *s, char c)
 	char	**strs;
 
 	i = 0;
+	strs = NULL;
 	if (!(strs = malloc(sizeof(char*) * (ft_split_strslen(s, c) + 1))))
 		return (NULL);
 	while (*s)

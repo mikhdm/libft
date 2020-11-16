@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 23:39:17 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/12 13:17:10 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/15 18:08:09 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ char				*ft_itoa(int n)
 		return (ft_strdup("0"));
 	flags = ft_itoa_check_and_modif(&n);
 	size = ft_itoa_strlen(n, flags);
+	nbr = NULL;
 	if (!(nbr = malloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	nbr[size--] = '\0';

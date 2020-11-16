@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/10 01:00:17 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/15 17:58:41 by rmander          ###   ########.fr       */
+/*   Created: 2020/11/17 00:06:35 by rmander           #+#    #+#             */
+/*   Updated: 2020/11/17 00:08:16 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	char	*substr;
-	size_t	ssize;
+	t_list	*node;
 
-	ssize = ft_strlen(s);
-	substr = NULL;
-	if (start >= ssize)
-		return (ft_strdup(""));
-	len = (len > ssize) ? ssize : len;
-	if (!len)
-		return (ft_strdup(""));
-	if (!(substr = malloc(sizeof(char) * (len + 1))))
+	node = NULL;
+	if (!(node = malloc(sizeof(t_list))))
 		return (NULL);
-	ft_strlcpy(substr, s + start, len + 1);
-	return (substr);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
