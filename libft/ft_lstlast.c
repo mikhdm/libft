@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 00:10:21 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/18 00:00:21 by rmander          ###   ########.fr       */
+/*   Created: 2020/11/17 23:44:50 by rmander           #+#    #+#             */
+/*   Updated: 2020/11/17 23:48:49 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_list *ft_lstlast(t_list *lst)
 {
-	new->next = *lst;
-	*lst = new;
+	t_list	*prev;
+	
+	prev = NULL;
+	while (*lst)
+	{
+		prev = lst;
+		lst = lst->next;
+	}
+	return (prev);
 }
