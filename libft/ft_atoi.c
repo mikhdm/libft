@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 00:45:30 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/15 17:47:58 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/20 00:08:42 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,18 @@ static long	ft_pow(long n, long power)
 	while (power--)
 		res *= n;
 	return (res);
+}
+
+static int	ft_isspace(int c)
+{
+	if (c == '\t' ||
+		c == '\n' ||
+		c == '\v' ||
+		c == '\f' ||
+		c == '\r' ||
+		c == ' ')
+		return (TRUE);
+	return (FALSE);
 }
 
 int			ft_atoi(const char *str)
