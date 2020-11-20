@@ -6,21 +6,33 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 21:46:20 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/15 18:03:53 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/21 02:51:57 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 static size_t	ft_split_strslen(char const *str, char c)
 {
 	size_t	cnt;
+	int		flag;
 
 	cnt = 0;
+	flag = OUT;
 	while (*str)
-		if (*str++ == c)
-			++cnt;
-	return (cnt + 1);
+	{
+		if (*str != c)
+		{
+			if (flag == OUT)
+				++cnt;
+			flag = IN;
+		}
+		else
+			flag = OUT;
+		++str;
+	}
+	return (cnt);
 }
 
 static size_t	ft_split_strlen(char const *str, char c)

@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:15:24 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/14 19:01:12 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/21 01:53:56 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -477,42 +477,42 @@ void	ft_test_isprint()
 
 }
 
-void	ft_test_isupper()
-{
-	int	c = 'a';
-	int	d = 'Z';
+/* void	ft_test_isupper() */
+/* { */
+/* 	int	c = 'a'; */
+/* 	int	d = 'Z'; */
 
-	printf("basic 1:\n");
-	printf("system:\n");
-	printf("%c: %d\n", c, isupper(c));
-	printf("mine:\n");
-	printf("%c: %d\n", c, ft_isupper(c));
+/* 	printf("basic 1:\n"); */
+/* 	printf("system:\n"); */
+/* 	printf("%c: %d\n", c, isupper(c)); */
+/* 	printf("mine:\n"); */
+/* 	printf("%c: %d\n", c, ft_isupper(c)); */
 
-	printf("basic 2:\n");
-	printf("system:\n");
-	printf("%c: %d\n", d, isupper(d));
-	printf("mine:\n");
-	printf("%c: %d\n", d, ft_isupper(d));
-}
+/* 	printf("basic 2:\n"); */
+/* 	printf("system:\n"); */
+/* 	printf("%c: %d\n", d, isupper(d)); */
+/* 	printf("mine:\n"); */
+/* 	printf("%c: %d\n", d, ft_isupper(d)); */
+/* } */
 
-void	ft_test_islower()
-{
-	int	c = 'a';
-	int	d = 'Z';
+/* void	ft_test_islower() */
+/* { */
+/* 	int	c = 'a'; */
+/* 	int	d = 'Z'; */
 
-	printf("basic 1:\n");
-	printf("system:\n");
-	printf("%c: %d\n", c, islower(c));
-	printf("mine:\n");
-	printf("%c: %d\n", c, ft_islower(c));
+/* 	printf("basic 1:\n"); */
+/* 	printf("system:\n"); */
+/* 	printf("%c: %d\n", c, islower(c)); */
+/* 	printf("mine:\n"); */
+/* 	printf("%c: %d\n", c, ft_islower(c)); */
 
-	printf("basic 2:\n");
-	printf("system:\n");
-	printf("%c: %d\n", d, islower(d));
-	printf("mine:\n");
-	printf("%c: %d\n", d, ft_islower(d));
+/* 	printf("basic 2:\n"); */
+/* 	printf("system:\n"); */
+/* 	printf("%c: %d\n", d, islower(d)); */
+/* 	printf("mine:\n"); */
+/* 	printf("%c: %d\n", d, ft_islower(d)); */
 
-}
+/* } */
 
 void	ft_test_toupper()
 {
@@ -646,6 +646,16 @@ void	ft_test_split()
 	printf("output:\n");
 	while (*strs)
 		printf("<%s>\n", *strs++);   
+
+	printf("basic 2:\n");
+	char 	str2[] = "    ";
+	char	**strs2;
+	int		i;
+	
+	i = 0;
+	strs2 = ft_split(str2, ' ');
+	printf("<%s>\n", strs2[0]);
+	printf("%s\n", strs2[1]);
 }
 
 void	ft_test_itoa()
@@ -669,7 +679,7 @@ void	ft_test_itoa()
 char	ft_to_upperi(unsigned int i, char c)
 {
 	if (i % 2 == 0)
-		if (ft_islower(c))
+		if (islower(c))
 			c= c - 32;
 	return (c);
 }
@@ -766,8 +776,8 @@ int		main(void)
 	test("FT_ISALNUM", &ft_test_isalnum);
 	test("FT_ISASCII", &ft_test_isascii);
 	test("FT_ISPRINT", &ft_test_isprint);
-	test("FT_ISUPPER", &ft_test_isupper);
-	test("FT_ISLOWER", &ft_test_islower);
+	/* test("FT_ISUPPER", &ft_test_isupper); */
+	/* test("FT_ISLOWER", &ft_test_islower); */
 	test("FT_TOUPPER", &ft_test_toupper);
 	test("FT_TOLOWER", &ft_test_tolower);
 	test("FT_CALLOC", &ft_test_calloc);

@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:07:35 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/20 00:12:50 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/21 02:17:06 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # define TRUE 1
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
+# define IN 0
+# define OUT 1
 
 typedef struct		s_list
 {
