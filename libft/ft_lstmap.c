@@ -6,7 +6,7 @@
 /*   By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:53:27 by rmander           #+#    #+#             */
-/*   Updated: 2020/11/20 02:08:53 by rmander          ###   ########.fr       */
+/*   Updated: 2020/11/22 15:28:56 by rmander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*head;
 	t_list	*curr;
 
-	if (!f && !del)
-		return (NULL);
 	head = NULL;
 	curr = NULL;
 	if (!(head = ft_lstnew(f(lst->content))))
