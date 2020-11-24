@@ -6,7 +6,7 @@
 #    By: rmander <rmander@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/01 20:23:55 by rmander           #+#    #+#              #
-#    Updated: 2020/11/20 00:27:57 by rmander          ###   ########.fr        #
+#    Updated: 2020/11/24 23:15:49 by rmander          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,17 @@ BONUSRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 OBJS = $(SRCS:.c=.o)
 BONUSOBJS = $(BONUSRCS:.c=.o)
 
+ifeq ($(MAKECMDGOALS), bonus)
+DEPS = $(OBJS) $(BONUSOBJS)
+else
+DEPS = $(OBJS)
+endif
+
 all: $(NAME)
 
-$(NAME): $(OBJS)
+bonus: $(NAME)
+
+$(NAME): $(DEPS)
 	ar rcs $@ $^
 
 %.o: %.c
@@ -40,10 +48,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-
-bonus: $(NAME) $(BONUSOBJS)
-	ar rcs $^
 	
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
